@@ -15,3 +15,13 @@ use Slim\Http\Response;
 
 //$app->get('/home', 'HomeController:index');
 $app->get('/', 'HomeController:index');
+
+$app->get('/api', 'ApiController:index');
+
+$app->get('/docs', function (Request $request, Response $response, $args) {
+    $swagger = \OpenApi\scan(__DIR__ . '/../Controllers');
+
+    header('Content-Type: application/json');
+
+    return $swagger->toJson();
+});

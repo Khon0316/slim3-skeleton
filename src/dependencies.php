@@ -22,3 +22,7 @@ $container['logger'] = function ($c) {
 $container['HomeController'] = function ($c) {
     return new App\Controllers\HomeController($c);
 };
+
+$container['ApiController'] = function ($c) {
+    return new App\Controllers\ApiController($c);
+};
